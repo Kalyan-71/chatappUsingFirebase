@@ -18,18 +18,18 @@ const Login = () => {
 
     
     
-    const user1 = auth.currentUser;
+    // const user1 = auth.currentUser;
 
     
-        if (user1 !== null) {
-          user1.providerData.forEach((profile) => {
+    //     if (user1 !== null) {
+    //       user1.providerData.forEach((profile) => {
             
-            console.log("  Provider-specific UID: " + profile.uid);
-            console.log("  Name: " + profile.displayName);
-            console.log("  Email: " + profile.email);
+    //         console.log("  Provider-specific UID: " + profile.uid);
+    //         console.log("  Name: " + profile.displayName);
+    //         console.log("  Email: " + profile.email);
             
-          });
-        }
+    //       });
+    //     }
     navigate("/")
     }
     catch(error){
