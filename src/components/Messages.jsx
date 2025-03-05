@@ -8,11 +8,13 @@ const Messages = () => {
   const [messages, setMessages] = useState([]);
   const { data } = useContext(ChatContext);
 
-  useEffect(() => {
+    useEffect(() => {
+    if (!data.chatId) return; // Prevent errors if chatId is undefined
+  
     const unSub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
-      doc.exists() && setMessages(doc.data().message);
+      setMessages(doc.exists() ? doc.data().message || [] : []);
     });
-
+  
     return () => {
       unSub();
     };
